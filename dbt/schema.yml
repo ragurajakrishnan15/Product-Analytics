@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_customers
+    columns:
+      - name: customer_id
+        tests: [not_null, unique]
+      - name: experiment_group
+        tests:
+          - accepted_values:
+              values: ['Control','Treatment']
+  - name: fct_customer_health
+    columns:
+      - name: customer_id
+        tests: [not_null, unique]

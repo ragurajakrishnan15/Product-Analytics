@@ -1,0 +1,47 @@
+{
+  "control": {
+    "n": 2503,
+    "adopters": 735,
+    "rate": 0.2936
+  },
+  "treatment": {
+    "n": 2497,
+    "adopters": 892,
+    "rate": 0.3572
+  },
+  "absolute_lift": 0.0636,
+  "relative_lift": 0.2165,
+  "p_value": 1.6034428242256833e-06,
+  "z_stat": -4.797891885395743,
+  "difference_ci": {
+    "low": 0.0377,
+    "high": 0.0895
+  },
+  "treatment_rate_ci": {
+    "low": 0.3387,
+    "high": 0.3762
+  },
+  "segments": [
+    {
+      "segment": "SMB",
+      "control_adoption": 0.2848,
+      "treatment_adoption": 0.3615,
+      "relative_lift": 0.2692,
+      "customers": 2776
+    },
+    {
+      "segment": "Mid-Market",
+      "control_adoption": 0.2977,
+      "treatment_adoption": 0.3651,
+      "relative_lift": 0.2264,
+      "customers": 1690
+    },
+    {
+      "segment": "Enterprise",
+      "control_adoption": 0.3306,
+      "treatment_adoption": 0.3151,
+      "relative_lift": -0.0469,
+      "customers": 534
+    }
+  ]
+}

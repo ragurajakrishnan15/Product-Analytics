@@ -1,0 +1,260 @@
+{
+  "kpis": {
+    "customers": 5000,
+    "calls": 59382,
+    "ai_adoption_rate": 0.3254,
+    "retention_8w": 0.6162,
+    "avg_health": 49.2722,
+    "annual_revenue": 22274896
+  },
+  "weekly": [
+    {
+      "week": "2026-01-05",
+      "active_customers": 3029,
+      "ai_handling_share": 0.2401289282836422,
+      "ai_adoption_rate": 0.3254
+    },
+    {
+      "week": "2026-01-12",
+      "active_customers": 3008,
+      "ai_handling_share": 0.23878495272580968,
+      "ai_adoption_rate": 0.3254
+    },
+    {
+      "week": "2026-01-19",
+      "active_customers": 3022,
+      "ai_handling_share": 0.23544657097288677,
+      "ai_adoption_rate": 0.3254
+    },
+    {
+      "week": "2026-01-26",
+      "active_customers": 3051,
+      "ai_handling_share": 0.23615796785076404,
+      "ai_adoption_rate": 0.3254
+    },
+    {
+      "week": "2026-02-02",
+      "active_customers": 3044,
+      "ai_handling_share": 0.23798076923076922,
+      "ai_adoption_rate": 0.3254
+    },
+    {
+      "week": "2026-02-09",
+      "active_customers": 2976,
+      "ai_handling_share": 0.2342985318107667,
+      "ai_adoption_rate": 0.3254
+    },
+    {
+      "week": "2026-02-16",
+      "active_customers": 3004,
+      "ai_handling_share": 0.24324869004433697,
+      "ai_adoption_rate": 0.3254
+    },
+    {
+      "week": "2026-02-23",
+      "active_customers": 2984,
+      "ai_handling_share": 0.23565827486586877,
+      "ai_adoption_rate": 0.3254
+    },
+    {
+      "week": "2026-03-02",
+      "active_customers": 2980,
+      "ai_handling_share": 0.24027177269919703,
+      "ai_adoption_rate": 0.3254
+    },
+    {
+      "week": "2026-03-09",
+      "active_customers": 2986,
+      "ai_handling_share": 0.22624618514750763,
+      "ai_adoption_rate": 0.3254
+    },
+    {
+      "week": "2026-03-16",
+      "active_customers": 3011,
+      "ai_handling_share": 0.24759959141981613,
+      "ai_adoption_rate": 0.3254
+    },
+    {
+      "week": "2026-03-23",
+      "active_customers": 3019,
+      "ai_handling_share": 0.24178450507866958,
+      "ai_adoption_rate": 0.3254
+    }
+  ],
+  "features": [
+    {
+      "feature": "AI Voice Agent",
+      "adoption_rate": 0.3254
+    },
+    {
+      "feature": "WhatsApp",
+      "adoption_rate": 0.51
+    },
+    {
+      "feature": "Analytics",
+      "adoption_rate": 0.43
+    },
+    {
+      "feature": "Call Routing",
+      "adoption_rate": 0.36
+    },
+    {
+      "feature": "AI Assist",
+      "adoption_rate": 0.27
+    },
+    {
+      "feature": "Integrations",
+      "adoption_rate": 0.22
+    }
+  ],
+  "experiment": {
+    "control": {
+      "n": 2503,
+      "adopters": 735,
+      "rate": 0.2936476228525769
+    },
+    "treatment": {
+      "n": 2497,
+      "adopters": 892,
+      "rate": 0.3572286744092911
+    },
+    "absolute_lift": 0.06358105155671423,
+    "relative_lift": 0.21652159462102818,
+    "p_value": 1.6034428242256833e-06,
+    "z_stat": -4.797891885395743,
+    "difference_ci": {
+      "low": 0.03766566171829935,
+      "high": 0.0894964413951291
+    },
+    "control_ci": {
+      "low": 0.27613278558180326,
+      "high": 0.3117948847679765
+    },
+    "treatment_ci": {
+      "low": 0.3386662320935942,
+      "high": 0.37622972922966974
+    },
+    "segments": [
+      {
+        "segment": "SMB",
+        "control_adoption": 0.284796573875803,
+        "treatment_adoption": 0.3614545454545455,
+        "n": 2776
+      },
+      {
+        "segment": "Mid-Market",
+        "control_adoption": 0.29767441860465116,
+        "treatment_adoption": 0.3650602409638554,
+        "n": 1690
+      },
+      {
+        "segment": "Enterprise",
+        "control_adoption": 0.3305785123966942,
+        "treatment_adoption": 0.3150684931506849,
+        "n": 534
+      }
+    ]
+  },
+  "cohorts": [
+    {
+      "cohort": "2025-10",
+      "W0": 0.98,
+      "W1": 0.864,
+      "W2": 0.796,
+      "W3": 0.756,
+      "W4": 0.702,
+      "W5": 0.679,
+      "W6": 0.663,
+      "W7": 0.632
+    },
+    {
+      "cohort": "2025-11",
+      "W0": 0.98,
+      "W1": 0.87,
+      "W2": 0.805,
+      "W3": 0.763,
+      "W4": 0.717,
+      "W5": 0.677,
+      "W6": 0.656,
+      "W7": 0.622
+    },
+    {
+      "cohort": "2025-12",
+      "W0": 0.98,
+      "W1": 0.885,
+      "W2": 0.804,
+      "W3": 0.759,
+      "W4": 0.732,
+      "W5": 0.686,
+      "W6": 0.65,
+      "W7": 0.623
+    },
+    {
+      "cohort": "2026-01",
+      "W0": 0.98,
+      "W1": 0.89,
+      "W2": 0.824,
+      "W3": 0.76,
+      "W4": 0.717,
+      "W5": 0.657,
+      "W6": 0.644,
+      "W7": 0.617
+    },
+    {
+      "cohort": "2026-02",
+      "W0": 0.98,
+      "W1": 0.877,
+      "W2": 0.811,
+      "W3": 0.743,
+      "W4": 0.732,
+      "W5": 0.678,
+      "W6": 0.644,
+      "W7": 0.622
+    },
+    {
+      "cohort": "2026-03",
+      "W0": 0.98,
+      "W1": 0.871,
+      "W2": 0.804,
+      "W3": 0.747,
+      "W4": 0.699,
+      "W5": 0.665,
+      "W6": 0.645,
+      "W7": 0.622
+    }
+  ],
+  "health_distribution": [
+    {
+      "band": "Critical",
+      "customers": 57
+    },
+    {
+      "band": "At risk",
+      "customers": 1973
+    },
+    {
+      "band": "Watch",
+      "customers": 1854
+    },
+    {
+      "band": "Healthy",
+      "customers": 1055
+    },
+    {
+      "band": "Advocate",
+      "customers": 61
+    }
+  ],
+  "agent_metrics": {
+    "ai_calls": 59382,
+    "resolution_rate": 0.8439997171345732,
+    "escalation_rate": 0.016406194752846333,
+    "avg_quality_score": 4.538657803549961,
+    "avg_handle_time_sec": 319.9000070716357
+  },
+  "insights": [
+    "AI adoption represents 32.5% of accounts. RECOMMENDATION: Heavily target the remaining 70% with in-app onboarding tutorials to drive expansion.",
+    "The control vs. treatment experiment demonstrates statistical significance. RECOMMENDATION: Immediately roll out the new AI Voice exposure to 100% of New Users to maximize adoption.",
+    "Retention heavily correlates with active feature usage. RECOMMENDATION: Deprioritize superficial metric tracking and build a customer success playbook around achieving a '75+' Customer Health Score within 14 days."
+  ]
+}

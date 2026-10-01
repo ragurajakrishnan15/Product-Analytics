@@ -1,0 +1,7 @@
+services:
+  voiceiq:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:////app/voiceiq.db
