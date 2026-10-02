@@ -1,260 +1,428 @@
 {
   "kpis": {
     "customers": 5000,
-    "calls": 59382,
-    "ai_adoption_rate": 0.3254,
-    "retention_8w": 0.6162,
-    "avg_health": 49.2722,
-    "annual_revenue": 22274896
+    "calls": 54260,
+    "ai_adoption_rate": 0.3028,
+    "retention_8w": 0.5994,
+    "avg_health": 55.2254,
+    "annual_revenue": 22099610
   },
   "weekly": [
     {
       "week": "2026-01-05",
-      "active_customers": 3029,
-      "ai_handling_share": 0.2401289282836422,
-      "ai_adoption_rate": 0.3254
+      "active_customers": 2374,
+      "calls": 4380,
+      "ai_handling_share": 0.04178082191780822,
+      "ai_adoption_rate": 0.0356
     },
     {
       "week": "2026-01-12",
-      "active_customers": 3008,
-      "ai_handling_share": 0.23878495272580968,
-      "ai_adoption_rate": 0.3254
+      "active_customers": 2538,
+      "calls": 4663,
+      "ai_handling_share": 0.06862534848809779,
+      "ai_adoption_rate": 0.0736
     },
     {
       "week": "2026-01-19",
-      "active_customers": 3022,
-      "ai_handling_share": 0.23544657097288677,
-      "ai_adoption_rate": 0.3254
+      "active_customers": 2456,
+      "calls": 4451,
+      "ai_handling_share": 0.10784093462143339,
+      "ai_adoption_rate": 0.113
     },
     {
       "week": "2026-01-26",
-      "active_customers": 3051,
-      "ai_handling_share": 0.23615796785076404,
-      "ai_adoption_rate": 0.3254
+      "active_customers": 2518,
+      "calls": 4552,
+      "ai_handling_share": 0.14389279437609842,
+      "ai_adoption_rate": 0.153
     },
     {
       "week": "2026-02-02",
-      "active_customers": 3044,
-      "ai_handling_share": 0.23798076923076922,
-      "ai_adoption_rate": 0.3254
+      "active_customers": 2505,
+      "calls": 4603,
+      "ai_handling_share": 0.17314794699109276,
+      "ai_adoption_rate": 0.189
     },
     {
       "week": "2026-02-09",
-      "active_customers": 2976,
-      "ai_handling_share": 0.2342985318107667,
-      "ai_adoption_rate": 0.3254
+      "active_customers": 2585,
+      "calls": 4812,
+      "ai_handling_share": 0.20947630922693267,
+      "ai_adoption_rate": 0.226
     },
     {
       "week": "2026-02-16",
-      "active_customers": 3004,
-      "ai_handling_share": 0.24324869004433697,
-      "ai_adoption_rate": 0.3254
+      "active_customers": 2500,
+      "calls": 4620,
+      "ai_handling_share": 0.20367965367965368,
+      "ai_adoption_rate": 0.2412
     },
     {
       "week": "2026-02-23",
-      "active_customers": 2984,
-      "ai_handling_share": 0.23565827486586877,
-      "ai_adoption_rate": 0.3254
+      "active_customers": 2501,
+      "calls": 4600,
+      "ai_handling_share": 0.21043478260869566,
+      "ai_adoption_rate": 0.2576
     },
     {
       "week": "2026-03-02",
-      "active_customers": 2980,
-      "ai_handling_share": 0.24027177269919703,
-      "ai_adoption_rate": 0.3254
+      "active_customers": 2498,
+      "calls": 4741,
+      "ai_handling_share": 0.20734022358152288,
+      "ai_adoption_rate": 0.2698
     },
     {
       "week": "2026-03-09",
-      "active_customers": 2986,
-      "ai_handling_share": 0.22624618514750763,
-      "ai_adoption_rate": 0.3254
+      "active_customers": 2388,
+      "calls": 4404,
+      "ai_handling_share": 0.21003633060853769,
+      "ai_adoption_rate": 0.2832
     },
     {
       "week": "2026-03-16",
-      "active_customers": 3011,
-      "ai_handling_share": 0.24759959141981613,
-      "ai_adoption_rate": 0.3254
+      "active_customers": 2302,
+      "calls": 4235,
+      "ai_handling_share": 0.24439197166469895,
+      "ai_adoption_rate": 0.2906
     },
     {
       "week": "2026-03-23",
-      "active_customers": 3019,
-      "ai_handling_share": 0.24178450507866958,
-      "ai_adoption_rate": 0.3254
+      "active_customers": 2249,
+      "calls": 4199,
+      "ai_handling_share": 0.25887115979995234,
+      "ai_adoption_rate": 0.3028
     }
   ],
   "features": [
     {
-      "feature": "AI Voice Agent",
-      "adoption_rate": 0.3254
-    },
-    {
       "feature": "WhatsApp",
-      "adoption_rate": 0.51
+      "adoption_rate": 0.4996
     },
     {
       "feature": "Analytics",
-      "adoption_rate": 0.43
+      "adoption_rate": 0.42
     },
     {
       "feature": "Call Routing",
-      "adoption_rate": 0.36
+      "adoption_rate": 0.3506
+    },
+    {
+      "feature": "AI Voice Agent",
+      "adoption_rate": 0.3028
     },
     {
       "feature": "AI Assist",
-      "adoption_rate": 0.27
+      "adoption_rate": 0.2496
     },
     {
       "feature": "Integrations",
-      "adoption_rate": 0.22
+      "adoption_rate": 0.1858
     }
   ],
   "experiment": {
     "control": {
       "n": 2503,
-      "adopters": 735,
-      "rate": 0.2936476228525769
+      "adopters": 683,
+      "rate": 0.2728725529364762,
+      "retention_8w": 0.5912904514582501
     },
     "treatment": {
       "n": 2497,
-      "adopters": 892,
-      "rate": 0.3572286744092911
+      "adopters": 831,
+      "rate": 0.3327993592310773,
+      "retention_8w": 0.6075290348418102
     },
-    "absolute_lift": 0.06358105155671423,
-    "relative_lift": 0.21652159462102818,
-    "p_value": 1.6034428242256833e-06,
-    "z_stat": -4.797891885395743,
+    "absolute_lift": 0.059926806294601065,
+    "relative_lift": 0.21961463565942382,
+    "p_value": 4.002438972148667e-06,
+    "z_stat": 4.611255672158008,
     "difference_ci": {
-      "low": 0.03766566171829935,
-      "high": 0.0894964413951291
+      "low": 0.034507607749359515,
+      "high": 0.08534600483984262
     },
     "control_ci": {
-      "low": 0.27613278558180326,
-      "high": 0.3117948847679765
+      "low": 0.2557802043996255,
+      "high": 0.29066099713735377
     },
     "treatment_ci": {
-      "low": 0.3386662320935942,
-      "high": 0.37622972922966974
+      "low": 0.3145862086226323,
+      "high": 0.35152617245019446
+    },
+    "mde": 0.035296719179477624,
+    "sample_ratio": 0.4994,
+    "retention_guardrail": {
+      "diff": 0.0162385833835601,
+      "ci_low": -0.01092281281880703,
+      "ci_high": 0.04339997958592723,
+      "p_value": 0.241347254436304,
+      "result": "inconclusive"
     },
     "segments": [
       {
         "segment": "SMB",
-        "control_adoption": 0.284796573875803,
-        "treatment_adoption": 0.3614545454545455,
-        "n": 2776
+        "control_n": 1401,
+        "treatment_n": 1375,
+        "n": 2776,
+        "control_adoption": 0.2648108493932905,
+        "treatment_adoption": 0.3389090909090909,
+        "relative_lift": 0.27981573143837274,
+        "diff_ci": {
+          "low": 0.04004229168505849,
+          "high": 0.10815419134654222
+        },
+        "p_value": 2.1054724612233892e-05,
+        "result": "positive",
+        "mde": 0.04692568093304185
       },
       {
         "segment": "Mid-Market",
-        "control_adoption": 0.29767441860465116,
-        "treatment_adoption": 0.3650602409638554,
-        "n": 1690
+        "control_n": 860,
+        "treatment_n": 830,
+        "n": 1690,
+        "control_adoption": 0.27674418604651163,
+        "treatment_adoption": 0.3385542168674699,
+        "relative_lift": 0.2233471701933786,
+        "diff_ci": {
+          "low": 0.017871830311240254,
+          "high": 0.10574823133067626
+        },
+        "p_value": 0.00589122481441868,
+        "result": "positive",
+        "mde": 0.060987964302200964
       },
       {
         "segment": "Enterprise",
-        "control_adoption": 0.3305785123966942,
-        "treatment_adoption": 0.3150684931506849,
-        "n": 534
+        "control_n": 242,
+        "treatment_n": 292,
+        "n": 534,
+        "control_adoption": 0.30578512396694213,
+        "treatment_adoption": 0.2876712328767123,
+        "relative_lift": -0.05923731951129211,
+        "diff_ci": {
+          "low": -0.09599673739009923,
+          "high": 0.059768955209639596
+        },
+        "p_value": 0.6480166855503195,
+        "result": "inconclusive",
+        "mde": 0.11220972340551352
       }
     ]
   },
   "cohorts": [
     {
-      "cohort": "2025-10",
-      "W0": 0.98,
-      "W1": 0.864,
-      "W2": 0.796,
-      "W3": 0.756,
-      "W4": 0.702,
-      "W5": 0.679,
-      "W6": 0.663,
-      "W7": 0.632
+      "cohort": "2026-01-05",
+      "customers": 235,
+      "W0": 1.0,
+      "W1": 0.7404,
+      "W2": 0.6723,
+      "W3": 0.6511,
+      "W4": 0.5915,
+      "W5": 0.5574,
+      "W6": 0.5319,
+      "W7": 0.4468
     },
     {
-      "cohort": "2025-11",
-      "W0": 0.98,
-      "W1": 0.87,
-      "W2": 0.805,
-      "W3": 0.763,
-      "W4": 0.717,
-      "W5": 0.677,
-      "W6": 0.656,
-      "W7": 0.622
+      "cohort": "2026-01-12",
+      "customers": 225,
+      "W0": 1.0,
+      "W1": 0.6978,
+      "W2": 0.6089,
+      "W3": 0.5867,
+      "W4": 0.5822,
+      "W5": 0.4489,
+      "W6": 0.4622,
+      "W7": 0.4
     },
     {
-      "cohort": "2025-12",
-      "W0": 0.98,
-      "W1": 0.885,
-      "W2": 0.804,
-      "W3": 0.759,
-      "W4": 0.732,
-      "W5": 0.686,
-      "W6": 0.65,
-      "W7": 0.623
+      "cohort": "2026-01-19",
+      "customers": 200,
+      "W0": 1.0,
+      "W1": 0.68,
+      "W2": 0.655,
+      "W3": 0.655,
+      "W4": 0.615,
+      "W5": 0.54,
+      "W6": 0.515,
+      "W7": 0.485
     },
     {
-      "cohort": "2026-01",
-      "W0": 0.98,
-      "W1": 0.89,
-      "W2": 0.824,
-      "W3": 0.76,
-      "W4": 0.717,
-      "W5": 0.657,
-      "W6": 0.644,
-      "W7": 0.617
+      "cohort": "2026-01-26",
+      "customers": 222,
+      "W0": 1.0,
+      "W1": 0.6847,
+      "W2": 0.6982,
+      "W3": 0.6486,
+      "W4": 0.6081,
+      "W5": 0.5,
+      "W6": 0.4324,
+      "W7": 0.4009
     },
     {
-      "cohort": "2026-02",
-      "W0": 0.98,
-      "W1": 0.877,
-      "W2": 0.811,
-      "W3": 0.743,
-      "W4": 0.732,
-      "W5": 0.678,
-      "W6": 0.644,
-      "W7": 0.622
+      "cohort": "2026-02-02",
+      "customers": 216,
+      "W0": 1.0,
+      "W1": 0.7917,
+      "W2": 0.6806,
+      "W3": 0.625,
+      "W4": 0.5833,
+      "W5": 0.5602,
+      "W6": 0.4861,
+      "W7": 0.4444
     },
     {
-      "cohort": "2026-03",
-      "W0": 0.98,
-      "W1": 0.871,
-      "W2": 0.804,
-      "W3": 0.747,
-      "W4": 0.699,
-      "W5": 0.665,
-      "W6": 0.645,
-      "W7": 0.622
+      "cohort": "2026-02-09",
+      "customers": 206,
+      "W0": 1.0,
+      "W1": 0.7039,
+      "W2": 0.699,
+      "W3": 0.6893,
+      "W4": 0.5971,
+      "W5": 0.5825,
+      "W6": 0.5243,
+      "W7": null
+    },
+    {
+      "cohort": "2026-02-16",
+      "customers": 202,
+      "W0": 1.0,
+      "W1": 0.7178,
+      "W2": 0.6238,
+      "W3": 0.5941,
+      "W4": 0.599,
+      "W5": 0.495,
+      "W6": null,
+      "W7": null
+    },
+    {
+      "cohort": "2026-02-23",
+      "customers": 210,
+      "W0": 1.0,
+      "W1": 0.7,
+      "W2": 0.681,
+      "W3": 0.5619,
+      "W4": 0.581,
+      "W5": null,
+      "W6": null,
+      "W7": null
+    },
+    {
+      "cohort": "2026-03-02",
+      "customers": 240,
+      "W0": 1.0,
+      "W1": 0.725,
+      "W2": 0.6792,
+      "W3": 0.6208,
+      "W4": null,
+      "W5": null,
+      "W6": null,
+      "W7": null
+    },
+    {
+      "cohort": "2026-03-09",
+      "customers": 39,
+      "W0": 1.0,
+      "W1": 0.7436,
+      "W2": 0.5897,
+      "W3": null,
+      "W4": null,
+      "W5": null,
+      "W6": null,
+      "W7": null
     }
   ],
   "health_distribution": [
     {
       "band": "Critical",
-      "customers": 57
+      "customers": 491,
+      "annual_revenue": 1834726,
+      "retention_8w": 0.02240325865580448
     },
     {
       "band": "At risk",
-      "customers": 1973
+      "customers": 1266,
+      "annual_revenue": 5237413,
+      "retention_8w": 0.2527646129541864
     },
     {
       "band": "Watch",
-      "customers": 1854
+      "customers": 1813,
+      "annual_revenue": 7804053,
+      "retention_8w": 0.7506894649751793
     },
     {
       "band": "Healthy",
-      "customers": 1055
+      "customers": 1163,
+      "annual_revenue": 5703076,
+      "retention_8w": 0.9088564058469476
     },
     {
       "band": "Advocate",
-      "customers": 61
+      "customers": 267,
+      "annual_revenue": 1520342,
+      "retention_8w": 0.9288389513108615
     }
   ],
+  "churn_model": {
+    "outcome": "churned within 8 weeks (1 - retained_8w)",
+    "method": "Logistic regression on standardised features; 70/30 train/holdout split",
+    "n_train": 3511,
+    "n_holdout": 1489,
+    "holdout_auc": 0.927799471797774,
+    "base_churn_rate": 0.4006,
+    "caveat": "Features and outcome share the same 12-week window, which inflates the AUC. In production, score accounts at a cutoff date and predict churn after it.",
+    "drivers": [
+      {
+        "feature": "Active in last 2 weeks",
+        "odds_ratio_per_sd": 0.23822614674056905,
+        "p_value": 1.4099770567634909e-93
+      },
+      {
+        "feature": "Share of weeks active",
+        "odds_ratio_per_sd": 0.3021022890132196,
+        "p_value": 7.682203086394114e-37
+      },
+      {
+        "feature": "Features used",
+        "odds_ratio_per_sd": 0.9436779662316059,
+        "p_value": 0.38429518635914883
+      },
+      {
+        "feature": "AI Voice Agent adopted",
+        "odds_ratio_per_sd": 0.9714345112513911,
+        "p_value": 0.6708602727149453
+      },
+      {
+        "feature": "Call resolution rate",
+        "odds_ratio_per_sd": 0.9765404795403663,
+        "p_value": 0.69742325281868
+      },
+      {
+        "feature": "Calls per active week",
+        "odds_ratio_per_sd": 1.0149576242326812,
+        "p_value": 0.8082341554947038
+      }
+    ]
+  },
   "agent_metrics": {
-    "ai_calls": 59382,
-    "resolution_rate": 0.8439997171345732,
-    "escalation_rate": 0.016406194752846333,
-    "avg_quality_score": 4.538657803549961,
-    "avg_handle_time_sec": 319.9000070716357
+    "ai_calls": 9382,
+    "resolution_rate": 0.8289277339586442,
+    "escalation_rate": 0.012790449797484544,
+    "avg_quality_score": 4.531517800042635,
+    "avg_handle_time_sec": 327.6889788957578,
+    "avg_first_response_min": 1.7961777872521851,
+    "human_baseline": {
+      "calls": 44878,
+      "resolution_rate": 0.7362850394402602,
+      "escalation_rate": 0.04487722269263336,
+      "avg_quality_score": 4.098295378581933,
+      "avg_handle_time_sec": 409.94364722135566,
+      "avg_first_response_min": 3.400682962698873
+    }
   },
   "insights": [
-    "AI adoption represents 32.5% of accounts. RECOMMENDATION: Heavily target the remaining 70% with in-app onboarding tutorials to drive expansion.",
-    "The control vs. treatment experiment demonstrates statistical significance. RECOMMENDATION: Immediately roll out the new AI Voice exposure to 100% of New Users to maximize adoption.",
-    "Retention heavily correlates with active feature usage. RECOMMENDATION: Deprioritize superficial metric tracking and build a customer success playbook around achieving a '75+' Customer Health Score within 14 days."
+    "AI Voice Agent adoption is 30.3% of accounts; 3,486 customers (70%) have not adopted. Starter is the weakest plan at 27.8%. RECOMMENDATION: target in-app onboarding at non-adopters, starting with Starter.",
+    "Treatment lifted AI adoption from 27.3% to 33.3% (+22.0% relative, p=4e-06, 95% CI +3.5 to +8.5 pp). 8-week retention moved +1.6 pp (95% CI -1.1 to +4.3), not a significant change. Segment reads are exploratory; the effect is inconclusive in Enterprise (n=534, CI -9.6 to +6.0 pp). RECOMMENDATION: ramp exposure in stages, keep retention as a guardrail, and size a follow-up test for under-powered segments before a full rollout.",
+    "AI-handled calls resolve at 82.9% vs 73.6% for human-handled calls, with quality 4.53/5 vs 4.10/5 (observational; AI calls are not randomly assigned). RECOMMENDATION: segment escalations by call type before expanding AI coverage.",
+    "The churn model (holdout AUC 0.93) ranks 'Active in last 2 weeks' as the strongest signal (odds ratio 0.24 per SD). 1,757 accounts (35%) sit in the Critical / At risk health bands, carrying $7,072,139 in ARR. RECOMMENDATION: route them to customer success, prioritised by churn risk x ARR."
   ]
 }

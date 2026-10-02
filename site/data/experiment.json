@@ -1,47 +1,89 @@
 {
   "control": {
     "n": 2503,
-    "adopters": 735,
-    "rate": 0.2936
+    "adopters": 683,
+    "rate": 0.2728725529364762,
+    "retention_8w": 0.5912904514582501
   },
   "treatment": {
     "n": 2497,
-    "adopters": 892,
-    "rate": 0.3572
+    "adopters": 831,
+    "rate": 0.3327993592310773,
+    "retention_8w": 0.6075290348418102
   },
-  "absolute_lift": 0.0636,
-  "relative_lift": 0.2165,
-  "p_value": 1.6034428242256833e-06,
-  "z_stat": -4.797891885395743,
+  "absolute_lift": 0.059926806294601065,
+  "relative_lift": 0.21961463565942382,
+  "p_value": 4.002438972148667e-06,
+  "z_stat": 4.611255672158008,
   "difference_ci": {
-    "low": 0.0377,
-    "high": 0.0895
+    "low": 0.034507607749359515,
+    "high": 0.08534600483984262
   },
-  "treatment_rate_ci": {
-    "low": 0.3387,
-    "high": 0.3762
+  "control_ci": {
+    "low": 0.2557802043996255,
+    "high": 0.29066099713735377
+  },
+  "treatment_ci": {
+    "low": 0.3145862086226323,
+    "high": 0.35152617245019446
+  },
+  "mde": 0.035296719179477624,
+  "sample_ratio": 0.4994,
+  "retention_guardrail": {
+    "diff": 0.0162385833835601,
+    "ci_low": -0.01092281281880703,
+    "ci_high": 0.04339997958592723,
+    "p_value": 0.241347254436304,
+    "result": "inconclusive"
   },
   "segments": [
     {
       "segment": "SMB",
-      "control_adoption": 0.2848,
-      "treatment_adoption": 0.3615,
-      "relative_lift": 0.2692,
-      "customers": 2776
+      "control_n": 1401,
+      "treatment_n": 1375,
+      "n": 2776,
+      "control_adoption": 0.2648108493932905,
+      "treatment_adoption": 0.3389090909090909,
+      "relative_lift": 0.27981573143837274,
+      "diff_ci": {
+        "low": 0.04004229168505849,
+        "high": 0.10815419134654222
+      },
+      "p_value": 2.1054724612233892e-05,
+      "result": "positive",
+      "mde": 0.04692568093304185
     },
     {
       "segment": "Mid-Market",
-      "control_adoption": 0.2977,
-      "treatment_adoption": 0.3651,
-      "relative_lift": 0.2264,
-      "customers": 1690
+      "control_n": 860,
+      "treatment_n": 830,
+      "n": 1690,
+      "control_adoption": 0.27674418604651163,
+      "treatment_adoption": 0.3385542168674699,
+      "relative_lift": 0.2233471701933786,
+      "diff_ci": {
+        "low": 0.017871830311240254,
+        "high": 0.10574823133067626
+      },
+      "p_value": 0.00589122481441868,
+      "result": "positive",
+      "mde": 0.060987964302200964
     },
     {
       "segment": "Enterprise",
-      "control_adoption": 0.3306,
-      "treatment_adoption": 0.3151,
-      "relative_lift": -0.0469,
-      "customers": 534
+      "control_n": 242,
+      "treatment_n": 292,
+      "n": 534,
+      "control_adoption": 0.30578512396694213,
+      "treatment_adoption": 0.2876712328767123,
+      "relative_lift": -0.05923731951129211,
+      "diff_ci": {
+        "low": -0.09599673739009923,
+        "high": 0.059768955209639596
+      },
+      "p_value": 0.6480166855503195,
+      "result": "inconclusive",
+      "mde": 0.11220972340551352
     }
   ]
 }

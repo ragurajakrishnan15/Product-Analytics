@@ -40,8 +40,8 @@
       </div>
       <div class="top-actions">
         <a class="btn secondary" href="#technical">View methodology</a>
-        <a class="btn secondary" href="/docs" target="_blank" rel="noreferrer">API docs</a>
-        <a class="btn primary" href="https://github.com/YOUR-USERNAME/voiceiq-product-analytics" target="_blank" rel="noreferrer">GitHub repo</a>
+        <a class="btn secondary" id="apiDocsLink" href="/docs" target="_blank" rel="noreferrer" style="display:none">API docs</a>
+        <a class="btn primary" href="https://github.com/ragurajakrishnan15/Product-Analytics" target="_blank" rel="noreferrer">GitHub repo</a>
       </div>
     </header>
 
@@ -57,11 +57,11 @@
       </div>
       <div id="kpis" class="kpi-grid"></div>
       <div class="grid two">
-        <article class="card large"><div class="card-head"><div><h3>Engagement & AI adoption trend</h3><p>Weekly active customers and AI feature adoption.</p></div><span class="tiny-tag">PRODUCT</span></div><div class="chart-wrapper"><canvas id="trendChart"></canvas></div></article>
-        <article class="card"><div class="card-head"><div><h3>Feature adoption</h3><p>Which capabilities are becoming habitual?</p></div><span class="tiny-tag">ADOPTION</span></div><div class="chart-wrapper"><canvas id="featureChart"></canvas></div></article>
+        <article class="card large"><div class="card-head"><div><h3>Engagement & AI adoption trend</h3><p>Weekly active customers and cumulative AI adoption.</p></div><span class="tiny-tag">PRODUCT</span></div><div class="chart-wrapper"><canvas id="trendChart"></canvas></div></article>
+        <article class="card"><div class="card-head"><div><h3>Feature adoption</h3><p>Share of customers who have used each feature (from usage events).</p></div><span class="tiny-tag">ADOPTION</span></div><div class="chart-wrapper"><canvas id="featureChart"></canvas></div></article>
       </div>
       <div class="grid two">
-        <article class="card"><div class="card-head"><div><h3>Decision-ready insights</h3><p>Automated from the underlying analysis.</p></div></div><div id="insights" class="insight-list"></div></article>
+        <article class="card"><div class="card-head"><div><h3>Decision-ready insights</h3><p>Generated from the computed metrics, not hand-written.</p></div></div><div id="insights" class="insight-list"></div></article>
         <article class="card"><div class="card-head"><div><h3>How this maps to the role</h3><p>Capabilities demonstrated in one portfolio artifact.</p></div></div><div class="role-map">
           <div><b>SQL</b><span>Metric definitions, cohorts, segments</span></div>
           <div><b>Python</b><span>Experimentation + statistical analysis</span></div>
@@ -89,24 +89,25 @@
         <div class="lift-card"><span>RELATIVE LIFT</span><strong id="relLift"></strong><small id="absLift"></small></div>
         <div class="lift-card"><span>P-VALUE</span><strong id="pVal"></strong><small>two-sided proportion test</small></div>
       </div>
-      <div class="grid two"><article class="card"><div class="card-head"><div><h3>Experiment readout</h3><p>Designed around the same questions a product analytics team would ask.</p></div></div><div class="metric-stack" id="experimentNarrative"></div></article><article class="card"><div class="card-head"><div><h3>Lift by customer segment</h3><p>Where does the treatment effect appear strongest?</p></div></div><div class="chart-wrapper"><canvas id="segmentExperimentChart"></canvas></div></article></div>
-      <div class="grid three"><div class="stat-box"><span>95% CI on adoption lift</span><b id="ciText"></b></div><div class="stat-box"><span>Test statistic</span><b id="zText"></b></div><div class="stat-box"><span>Design principle</span><b>Measure outcomes, not clicks</b></div></div>
+      <div class="grid two"><article class="card"><div class="card-head"><div><h3>Experiment readout</h3><p>Designed around the same questions a product analytics team would ask.</p></div></div><div class="metric-stack" id="experimentNarrative"></div></article><article class="card"><div class="card-head"><div><h3>Lift by customer segment</h3><p>Exploratory: segments are not individually powered.</p></div></div><div class="chart-wrapper"><canvas id="segmentExperimentChart"></canvas></div><div class="table-wrap"><table id="segmentTable"></table></div></article></div>
+      <div class="grid three"><div class="stat-box"><span>95% CI on adoption lift</span><b id="ciText"></b></div><div class="stat-box"><span>Test statistic</span><b id="zText"></b></div><div class="stat-box"><span>Minimum detectable effect</span><b id="mdeText"></b></div></div>
     </section>
 
     <section id="cohorts" class="page-section">
       <div class="section-head"><div><div class="eyebrow">RETENTION</div><h2>Cohort analysis</h2><p>Retention is displayed as a cohort × age matrix, the fastest way to see early drop-off and durable usage.</p></div></div>
-      <article class="card"><div class="card-head"><div><h3>Signup cohort retention</h3><p>Percent of customers remaining active by week since signup.</p></div></div><div class="table-wrap"><table id="cohortTable"></table></div></article>
+      <article class="card"><div class="card-head"><div><h3>Signup cohort retention</h3><p>Share of each weekly signup cohort with at least one call in week N after signup, computed from call events. Blank cells are not yet observable.</p></div></div><div class="table-wrap"><table id="cohortTable"></table></div></article>
     </section>
 
     <section id="health" class="page-section">
-      <div class="section-head"><div><div class="eyebrow">CUSTOMER HEALTH</div><h2>Health score & opportunity explorer</h2><p>Combine engagement, feature breadth, retention signals and AI adoption into an explainable 0–100 health score.</p></div></div>
+      <div class="section-head"><div><div class="eyebrow">CUSTOMER HEALTH</div><h2>Health score & opportunity explorer</h2><p>An explainable 0–100 score computed in SQL from call and feature-usage events, plus a fitted churn-risk model.</p></div></div>
       <div class="grid two"><article class="card"><div class="card-head"><div><h3>Health distribution</h3><p>Where attention is concentrated.</p></div></div><div class="chart-wrapper"><canvas id="healthChart"></canvas></div></article><article class="card"><div class="card-head"><div><h3>Priority customer explorer</h3><p>Search the synthetic account set and inspect risk/usage signals.</p></div><input id="customerSearch" class="search" placeholder="Search customer ID, plan, segment..."></div><div class="table-wrap compact"><table id="customerTable"></table></div></article></div>
+      <div class="grid two"><article class="card"><div class="card-head"><div><h3>How the health score is built</h3><p>Weights in sql/00_customer_metrics.sql; validated against 8-week retention.</p></div></div><div class="metric-stack"><div class="metric-line"><span>35% Engagement</span><strong>active weeks / weeks observable</strong></div><div class="metric-line"><span>20% Intensity</span><strong>calls per active week (cap 3)</strong></div><div class="metric-line"><span>15% Breadth</span><strong>features used / 6</strong></div><div class="metric-line"><span>15% Quality</span><strong>call resolution rate</strong></div><div class="metric-line"><span>10% AI adoption</span><strong>AI Voice Agent turned on</strong></div><div class="metric-line"><span>5% Recency</span><strong>active in last 2 weeks</strong></div></div><h4>Retention by band</h4><div class="metric-stack" id="bandRetention"></div></article><article class="card"><div class="card-head"><div><h3>Churn-risk model</h3><p>Drives the Risk column. Odds ratios per standard deviation; below 1 lowers risk.</p></div></div><div class="metric-stack" id="churnModel"></div></article></div>
     </section>
 
     <section id="agent" class="page-section">
       <div class="section-head"><div><div class="eyebrow">AI PRODUCT ANALYTICS</div><h2>AI Voice Agent performance</h2><p>Operational metrics for AI-handled conversations, tied back to product outcomes.</p></div></div>
       <div id="agentMetrics" class="kpi-grid four"></div>
-      <div class="grid two"><article class="card large"><div class="card-head"><div><h3>AI quality vs. human baseline</h3><p>Illustrative quality and handling-time comparison from the synthetic event stream.</p></div></div><div class="chart-wrapper"><canvas id="agentChart"></canvas></div></article><article class="card"><div class="card-head"><div><h3>What to investigate next</h3><p>Example hypotheses for the product roadmap.</p></div></div><div class="roadmap"><div><b>01</b><span>Identify call types with elevated escalation.</span></div><div><b>02</b><span>Segment AI quality by plan and customer maturity.</span></div><div><b>03</b><span>Connect agent quality to renewal and expansion.</span></div><div><b>04</b><span>Test onboarding prompts that increase first-week adoption.</span></div></div></article></div>
+      <div class="grid two"><article class="card large"><div class="card-head"><div><h3>AI vs. human-handled calls</h3><p>Measured from the synthetic call event stream.</p></div></div><div class="chart-wrapper"><canvas id="agentChart"></canvas></div><p id="agentNote" class="note-copy"></p></article><article class="card"><div class="card-head"><div><h3>What to investigate next</h3><p>Example hypotheses for the product roadmap.</p></div></div><div class="roadmap"><div><b>01</b><span>Identify call types with elevated escalation.</span></div><div><b>02</b><span>Segment AI quality by plan and customer maturity.</span></div><div><b>03</b><span>Connect agent quality to renewal and expansion.</span></div><div><b>04</b><span>Test onboarding prompts that increase first-week adoption.</span></div></div></article></div>
     </section>
 
     <section id="technical" class="page-section">
@@ -119,8 +120,8 @@
       </div>
       <div class="code-tabs"><button class="code-tab active" data-code="sql">SQL</button><button class="code-tab" data-code="python">Python</button><button class="code-tab" data-code="dbt">dbt</button><button class="code-tab" data-code="airflow">Airflow</button></div>
       <pre id="codeBlock" class="code-block"></pre>
-      <div class="grid two"><article class="card"><div class="card-head"><div><h3>Data quality checks</h3><p>Portfolio-grade guardrails included in the repository.</p></div></div><div class="check-list"><div><span>✓</span>Primary key uniqueness</div><div><span>✓</span>Non-null customer IDs</div><div><span>✓</span>Valid plan/segment domains</div><div><span>✓</span>Experiment groups balanced</div><div><span>✓</span>Rates bounded to 0–1</div><div><span>✓</span>Retention cannot exceed cohort size</div></div></article><article class="card"><div class="card-head"><div><h3>Repository structure</h3><p>Designed so a recruiter can inspect the work, not just the screenshots.</p></div></div><div class="repo-tree"><div>📁 site/ <small>interactive portfolio</small></div><div>📁 data/ <small>synthetic CSV data</small></div><div>📁 sql/ <small>metric + cohort queries</small></div><div>📁 analytics/ <small>Python experiment analysis</small></div><div>📁 dbt/ <small>transformation layer</small></div><div>📁 airflow/ <small>orchestration example</small></div><div>📄 README.md <small>case study + setup</small></div></div></article></div>
-      <div class="recruiter-footer"><div><div class="eyebrow">RECRUITER TAKEAWAY</div><h3>This project demonstrates product analytics thinking, backed by a live API and reproducible analysis.</h3><p>Use the interactive site as the first click, then the repository as the evidence layer: live API endpoints, SQL, statistical tests, pipeline structure, and a decision-ready narrative.</p></div><div class="cta-stack"><a class="btn primary" href="#overview">Back to dashboard</a><a class="btn secondary" href="mailto:YOUR-EMAIL@example.com?subject=VoiceIQ%20portfolio">Contact</a></div></div>
+      <div class="grid two"><article class="card"><div class="card-head"><div><h3>Data quality checks</h3><p>tests/test_data_quality.py + tests/test_api.py</p></div></div><div class="check-list"><div><span>✓</span>Primary keys unique and non-null</div><div><span>✓</span>Valid plan / segment / feature domains</div><div><span>✓</span>Experiment groups balanced (SRM test)</div><div><span>✓</span>Calls and features reference real customers</div><div><span>✓</span>No activity before signup</div><div><span>✓</span>AI-handled calls only after AI adoption</div><div><span>✓</span>Cohort retention within 0–100%, signup week = 100%</div><div><span>✓</span>20 automated tests run in CI on every push</div></div></article><article class="card"><div class="card-head"><div><h3>Repository structure</h3><p>Designed so a recruiter can inspect the work, not just the screenshots.</p></div></div><div class="repo-tree"><div>📁 site/ <small>interactive portfolio</small></div><div>📁 backend/ <small>FastAPI metric layer + churn model</small></div><div>📁 data/ <small>raw events: customers, calls, feature usage</small></div><div>📁 sql/ <small>metric + cohort queries</small></div><div>📁 analytics/ <small>Python experiment analysis</small></div><div>📁 dbt/ <small>transformation layer</small></div><div>📁 airflow/ <small>orchestration example</small></div><div>📁 tests/ <small>data quality + API tests</small></div><div>📄 README.md <small>case study + setup</small></div></div></article></div>
+      <div class="recruiter-footer"><div><div class="eyebrow">RECRUITER TAKEAWAY</div><h3>This project demonstrates product analytics thinking, backed by a live API and reproducible analysis.</h3><p>Use the interactive site as the first click, then the repository as the evidence layer: live API endpoints, SQL, statistical tests, pipeline structure, and a decision-ready narrative.</p></div><div class="cta-stack"><a class="btn primary" href="#overview">Back to dashboard</a><a class="btn secondary" href="mailto:rnatarajanma@binghamton.edu?subject=VoiceIQ%20portfolio">Contact</a></div></div>
     </section>
 
     <footer><span>VoiceIQ • Synthetic case study • Built for portfolio demonstration</span><span>Updated Oct 1, 2026</span></footer>
@@ -130,6 +131,6 @@
     <aside class="drawer-panel"><div class="drawer-head"><div><div class="eyebrow">CUSTOMER DETAIL</div><h3>Account-level drilldown</h3></div><button class="close-btn" onclick="document.getElementById('customerDrawer').classList.remove('open')">×</button></div><div id="customerDrawerBody" class="drawer-body"></div></aside>
   </div>
 </div>
-<script src="app.js?v=2"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>

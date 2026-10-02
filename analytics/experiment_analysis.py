@@ -4,17 +4,21 @@ from statsmodels.stats.proportion import proportions_ztest, proportion_confint
 
 ROOT = Path(__file__).resolve().parents[1]
 customers = pd.read_csv(ROOT / 'data' / 'customers.csv')
+features = pd.read_csv(ROOT / 'data' / 'feature_usage.csv')
+# Primary metric: the account turned on the AI Voice Agent (a feature-usage event).
+adopters = features.loc[features.feature == 'AI Voice Agent', 'customer_id']
+customers['ai_adopted'] = customers.customer_id.isin(adopters).astype(int)
 
 g = customers.groupby('experiment_group').agg(
     customers=('customer_id','count'),
     adopters=('ai_adopted','sum'),
     retention=('retained_8w','mean'),
-    avg_health=('health_score','mean'),
 ).loc[['Control','Treatment']]
 
 counts = g['adopters'].to_numpy()
 nobs = g['customers'].to_numpy()
-z_stat, p_value = proportions_ztest(counts, nobs)
+# (treatment, control) order so a positive z means treatment > control, matching the API.
+z_stat, p_value = proportions_ztest(counts[::-1], nobs[::-1])
 
 control_rate = counts[0] / nobs[0]
 treatment_rate = counts[1] / nobs[1]

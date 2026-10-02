@@ -1,10 +1,12 @@
-# Fast GitHub Pages deployment
+# GitHub Pages deployment
 
-1. Create a GitHub repository, e.g. `voiceiq-product-analytics`.
-2. Push this folder.
-3. For a pure static deployment, publish the `site/` directory. The easiest option is to copy `site/*` to the repository root and enable GitHub Pages from the `main` branch `/root`.
-4. Your recruiter URL will look like `https://YOUR-USERNAME.github.io/voiceiq-product-analytics/`.
+The repository ships with `.github/workflows/pages.yml`, which rebuilds the static snapshot and publishes `site/`
+on every push to `main`.
 
-The dashboard loads its JSON from `data/`, so keep `site/data/` together with `index.html`.
+1. Push the repository to `https://github.com/ragurajakrishnan15/Product-Analytics`.
+2. One-time: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+3. The workflow runs on the next push (or trigger it from the Actions tab). The dashboard is served at
+   `https://ragurajakrishnan15.github.io/Product-Analytics/`.
 
-Before sharing, replace the `YOUR-USERNAME` GitHub link and `YOUR-EMAIL@example.com` email link in `site/index.html`.
+On a static host the API docs button is hidden, and the customer drawer shows the account profile without the call
+timeline (that needs the live API). Everything else, including all statistics, comes from `site/data/snapshot.js`.

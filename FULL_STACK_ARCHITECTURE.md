@@ -10,14 +10,17 @@ FastAPI application
   |       |        |
   |       |        +--> /api/experiment (statsmodels)
   |       +-----------> /api/customers (SQL filters)
-  +-------------------> /api/kpis, /api/cohorts, /api/agent
+  +-------------------> /api/kpis, /api/cohorts, /api/agent, /api/churn-model
         |
         v
 SQLite by default / PostgreSQL via DATABASE_URL
         |
         v
-customers + calls tables
+customers + calls + feature_usage (raw)
         |
+        +--> customer_metrics (sql/00_customer_metrics.sql + churn model)
+        |
+        +--> export_static.py --> site/data/snapshot.js (static/GitHub Pages mode, same metric code)
         +--> SQL metric layer
         +--> dbt models
         +--> Python experiment analysis

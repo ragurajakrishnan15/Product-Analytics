@@ -1,42 +1,37 @@
-import urllib.request
+"""Write the static dashboard snapshot in site/data/ from the same code that powers the API.
+
+Runs in-process (no server needed):  python export_static.py
+"""
+import csv
 import json
-import os
 from pathlib import Path
 
-# Ensure site/data directory exists
-ROOT = Path('site/data')
-ROOT.mkdir(parents=True, exist_ok=True)
+from backend.main import customers_payload, dashboard_payload, init_db
 
-def fetch_json(route):
-    url = f'http://localhost:8000/api/{route}'
-    req = urllib.request.urlopen(url)
-    return json.loads(req.read().decode('utf-8'))
+OUT = Path(__file__).resolve().parent / 'site' / 'data'
+OUT.mkdir(parents=True, exist_ok=True)
 
-print("Fetching API data...")
 
-# Combine the individual API responses into a single dashboard.json
-dashboard = {
-    'kpis': fetch_json('kpis'),
-    'weekly': fetch_json('weekly'),
-    'features': fetch_json('features'),
-    'experiment': fetch_json('experiment'),
-    'cohorts': fetch_json('cohorts'),
-    'health_distribution': fetch_json('health-distribution'),
-    'agent_metrics': fetch_json('agent'),
-    'insights': [
-        f"AI adoption represents {(fetch_json('kpis')['ai_adoption_rate']*100):.1f}% of accounts. RECOMMENDATION: Heavily target the remaining 70% with in-app onboarding tutorials to drive expansion.",
-        "The control vs. treatment experiment demonstrates statistical significance. RECOMMENDATION: Immediately roll out the new AI Voice exposure to 100% of New Users to maximize adoption.",
-        "Retention heavily correlates with active feature usage. RECOMMENDATION: Deprioritize superficial metric tracking and build a customer success playbook around achieving a '75+' Customer Health Score within 14 days."
-    ]
-}
+def write_csv(path, rows, fields):
+    with open(path, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=fields, extrasaction='ignore')
+        writer.writeheader()
+        writer.writerows(rows)
 
-# Write dashboard.json
-with open(ROOT / 'dashboard.json', 'w') as f:
-    json.dump(dashboard, f, indent=2)
 
-# Write customers.json (just fetch top 5000)
-customers = fetch_json('customers?limit=5000')
-with open(ROOT / 'customers.json', 'w') as f:
-    json.dump(customers, f, indent=2)
+init_db()
+dashboard = dashboard_payload()
+customers = customers_payload(limit=5000)
 
-print("Successfully exported dashboard.json and customers.json!")
+# Human-readable artifacts for inspection.
+(OUT / 'dashboard.json').write_text(json.dumps(dashboard, indent=2), encoding='utf-8')
+(OUT / 'experiment.json').write_text(json.dumps(dashboard['experiment'], indent=2), encoding='utf-8')
+write_csv(OUT / 'weekly.csv', dashboard['weekly'], ['week', 'active_customers', 'calls', 'ai_handling_share', 'ai_adoption_rate'])
+write_csv(OUT / 'features.csv', dashboard['features'], ['feature', 'adoption_rate'])
+write_csv(OUT / 'cohorts.csv', dashboard['cohorts'], ['cohort', 'customers'] + [f'W{k}' for k in range(8)])
+
+# The page loads this as a <script>, which (unlike fetch) also works when index.html is opened from disk.
+snapshot = json.dumps({'dashboard': dashboard, 'customers': customers}, separators=(',', ':'))
+(OUT / 'snapshot.js').write_text(f'window.VOICEIQ_SNAPSHOT={snapshot};\n', encoding='utf-8')
+
+print(f"Exported snapshot: {len(customers)} customers, {dashboard['kpis']['calls']} calls -> {OUT}")

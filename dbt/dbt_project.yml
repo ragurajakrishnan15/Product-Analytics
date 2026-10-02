@@ -1,0 +1,8 @@
+name: voiceiq
+version: '1.0.0'
+config-version: 2
+profile: voiceiq   # define in ~/.dbt/profiles.yml (PostgreSQL, same database as DATABASE_URL)
+
+model-paths: ["models"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]

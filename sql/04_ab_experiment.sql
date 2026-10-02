@@ -6,7 +6,7 @@ SELECT
     AVG(ai_adopted::float) AS adoption_rate,
     AVG(retained_8w::float) AS retention_8w,
     AVG(health_score) AS avg_health
-FROM customers
+FROM customer_metrics  -- built by sql/00_customer_metrics.sql
 GROUP BY experiment_group;
 
 -- Segment readout for treatment heterogeneity.
@@ -16,6 +16,6 @@ SELECT
     COUNT(*) AS customers,
     AVG(ai_adopted::float) AS adoption_rate,
     AVG(retained_8w::float) AS retention_8w
-FROM customers
+FROM customer_metrics  -- built by sql/00_customer_metrics.sql
 GROUP BY company_size, experiment_group
 ORDER BY company_size, experiment_group;

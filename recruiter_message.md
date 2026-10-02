@@ -6,7 +6,7 @@ I recently applied for the Data Scientist, Product Analytics role and built a sm
 
 I built the dashboard end-to-end with SQL and Python analysis, statistical testing, data-quality checks, and a recruiter-facing interactive website. The data is synthetic, but the workflow is designed to mirror how I would approach a real product analytics problem.
 
-Portfolio: [YOUR LIVE LINK]
+Portfolio: https://ragurajakrishnan15.github.io/Product-Analytics/
 
 Thank you for taking the time to look at it.
 

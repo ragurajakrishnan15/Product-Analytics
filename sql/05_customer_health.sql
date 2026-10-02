@@ -12,5 +12,5 @@ SELECT
     health_score,
     churn_risk,
     annual_revenue
-FROM customers
+FROM customer_metrics  -- built by sql/00_customer_metrics.sql
 ORDER BY churn_risk DESC, annual_revenue DESC;

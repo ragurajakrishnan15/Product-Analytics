@@ -1,21 +1,23 @@
-"""Illustrative orchestration only; this DAG is intentionally dependency-light."""
-from airflow import DAG
-from airflow.operators.python import PythonOperator
-from airflow.operators.bash import BashOperator
+"""Daily refresh: regenerate data -> quality checks -> dbt models + tests -> static dashboard snapshot."""
+import os
 from datetime import datetime
 
-def refresh_dataset():
-    print('Refresh browser-facing aggregate dataset here.')
+from airflow import DAG
+from airflow.operators.bash import BashOperator
+
+PROJECT_DIR = os.getenv('VOICEIQ_PROJECT_DIR', '/opt/voiceiq')
+DBT_DIR = os.path.join(PROJECT_DIR, 'dbt')
 
 with DAG(
     dag_id='product_analytics_daily',
     start_date=datetime(2026, 1, 1),
     schedule='0 7 * * *',
     catchup=False,
-    tags=['product-analytics','voiceiq'],
+    tags=['product-analytics', 'voiceiq'],
 ) as dag:
-    ingest = PythonOperator(task_id='ingest_events', python_callable=lambda: print('Ingest new events'))
-    transform = BashOperator(task_id='dbt_build', bash_command='dbt build')
-    tests = BashOperator(task_id='dbt_test', bash_command='dbt test')
-    refresh = PythonOperator(task_id='refresh_dashboard_dataset', python_callable=refresh_dataset)
-    ingest >> transform >> tests >> refresh
+    # In production this would pull from the event warehouse; here it regenerates the synthetic tables.
+    ingest = BashOperator(task_id='ingest_events', bash_command='python build_data.py', cwd=PROJECT_DIR)
+    quality = BashOperator(task_id='data_quality', bash_command='python tests/test_data_quality.py', cwd=PROJECT_DIR)
+    transform = BashOperator(task_id='dbt_build', bash_command='dbt build', cwd=DBT_DIR)  # runs models and tests
+    refresh = BashOperator(task_id='refresh_dashboard_snapshot', bash_command='python export_static.py', cwd=PROJECT_DIR)
+    ingest >> quality >> transform >> refresh

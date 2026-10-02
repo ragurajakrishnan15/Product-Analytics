@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Raw synthetic tables loaded from data/*.csv (see backend.main.init_db).
+    schema: "{{ var('raw_schema', 'public') }}"
+    tables:
+      - name: customers
+      - name: calls
+      - name: feature_usage
+
+models:
+  - name: stg_customers
+    columns:
+      - name: customer_id
+        tests: [not_null, unique]
+      - name: experiment_group
+        tests:
+          - accepted_values:
+              values: ['Control', 'Treatment']
+  - name: stg_calls
+    columns:
+      - name: call_id
+        tests: [not_null, unique]
+      - name: customer_id
+        tests:
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+  - name: stg_feature_usage
+    columns:
+      - name: feature
+        tests:
+          - accepted_values:
+              values: ['AI Voice Agent', 'WhatsApp', 'Analytics', 'Call Routing', 'AI Assist', 'Integrations']
+  - name: fct_customer_metrics
+    columns:
+      - name: customer_id
+        tests: [not_null, unique]
+  - name: fct_customer_health
+    columns:
+      - name: customer_id
+        tests: [not_null, unique]
+      - name: health_band
+        tests:
+          - accepted_values:
+              values: ['Critical', 'At risk', 'Watch', 'Healthy', 'Advocate']
+  - name: fct_product_metrics
+    columns:
+      - name: plan
+        tests:
+          - accepted_values:
+              values: ['Starter', 'Professional', 'Business', 'Enterprise']
